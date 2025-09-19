@@ -1,0 +1,146 @@
+<!-- Página de gastronomía: portada 100vh + sección de imagen 100vh con animaciones al desplazar
+     Archivo: index.html
+     Instrucciones: reemplaza los textos y las URLs de las imágenes por los tuyos.
+-->
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gastro · Portada</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-gradient: #af8262;  /* Marrón sólido */
+      --accent: #af8262; 
+      --muted: #1d1b1b;
+      --glass: rgba(255,255,255,0.08);
+      --max-width: 1300px; /* más ancho */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#8B4513;scroll-behavior:smooth;}
+    a{color:inherit;text-decoration:none}
+
+    /* Animaciones al hacer scroll */
+    [data-animate]{opacity:0;transform:translateY(40px);transition:all 1s ease-out;}
+    [data-animate].visible{opacity:1;transform:translateY(0);}
+
+    /* Contenedores de pantalla completa */
+    .full-viewport{min-height:100vh;height:100vh;width:100%;display:grid;place-items:center;padding:2rem}
+
+    /* Portada */
+    .hero{
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      color: white;
+    }
+    .hero::after{
+      content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));
+    }
+    .hero .container{position:relative;z-index:1;max-width:var(--max-width);text-align:center}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem, 6vw,4rem);margin:0 0 .5rem;letter-spacing:0.02em}
+    .hero p{font-size:clamp(1rem, 2vw,1.25rem);margin:0;color:rgba(255,255,255,0.92)}
+    .hero .meta{margin-top:1.25rem;color:rgba(255,255,255,0.85);font-weight:300}
+
+    /* Sección de imagen */
+    .image-block{
+      background:var(--bg-gradient);
+      display:flex;align-items:center;justify-content:center;flex-direction:column
+    }
+    .image-card{
+      max-width:var(--max-width);
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:2rem;
+      align-items:center;
+      text-align:center;
+    }
+
+    /* Figura */
+    .figure{
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.08));
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 12px 40px rgba(11,11,11,0.2);
+      display:flex;
+      flex-direction:column;
+      height:100%;
+    }
+    .figure img{width:100%;height:70vh;object-fit:cover;display:block}
+    .figure .fig-caption{padding:2rem;font-size:1.2rem}
+    .figure .fig-caption h2{margin:0 0 .5rem;font-family:'Playfair Display',serif;font-size:2rem}
+    .figure .fig-caption p{margin:0;color:var(--muted);font-size:1.1rem;line-height:1.7}
+
+    /* Historia */
+    .history{
+      font-size:1.2rem;
+      line-height:1.8;
+      color:var(--muted);
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
+
+    @media(min-width:900px){
+      .image-card{grid-template-columns:1fr 1fr;gap:3rem}
+      .figure img{height:60vh}
+      .figure .fig-caption{padding:2.5rem}
+    }
+
+    .logo{position:absolute;left:24px;top:18px;z-index:2;color:white;font-weight:600}
+    .cta{display:inline-block;margin-top:1rem;padding:.6rem 1rem;border-radius:10px;background:rgba(255,255,255,0.14);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,0.08)}
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <header class="full-viewport hero" data-animate>
+    <div class="logo">Gastro<span style="opacity:.75">Lab</span></div>
+    <div class="container">
+      <h1>Sabores que cuentan historias</h1>
+      <p>Recetas, reseñas y experiencias gastronómicas pensadas para descubrir ingredientes, tradiciones y las mejores mesas de la ciudad.</p>
+      <div class="meta"></div>
+    </div>
+  </header>
+
+  <!-- BLOQUE IMAGEN -->
+  <section class="full-viewport image-block" data-animate>
+    <div class="image-card">
+      <figure class="figure" data-animate>
+        <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1600&q=80" alt="Plato destacado">
+        <figcaption class="fig-caption">
+          <h2>Plato destacado: Risotto de hongos</h2>
+          <p>Un risotto cremoso con hongos silvestres, parmesano rallado y un toque de aceite de trufa — ideal para una cena otoñal.</p>
+        </figcaption>
+      </figure>
+
+      <div class="history" data-animate>
+        <h3 style="margin-top:0;font-family:'Playfair Display',serif;font-size:1.8rem">Historia del plato</h3>
+        <p>Aquí puedes agregar la historia, los ingredientes, el tiempo de cocción y recomendaciones para acompañar. También sirve para colocar un botón que lleve a la receta completa o a una galería de fotos.</p>
+        <p style="margin-top:1.5rem"><strong>Tip:</strong> Cambia la imagen por una tuya subiendo la URL o usando un método de subida si integras un backend.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const animateElements = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold:0.2});
+
+    animateElements.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
+

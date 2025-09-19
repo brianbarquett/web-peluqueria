@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnos a Reservar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+      font-weight: bold;
+    }
+    .header span {
+      color: #0077ff;
+      font-size: 1.1em;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #eee;
+    }
+    .tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      background: #f2f2f2;
+      font-weight: bold;
+    }
+    .tab.active {
+      background: #6c63ff;
+      color: white;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .turno {
+      padding: 15px;
+    }
+
+    .turno .info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .turno .info img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+    }
+
+    .turno .detalle {
+      font-size: 0.95em;
+      margin-bottom: 10px;
+    }
+
+    .turno .detalle span {
+      font-weight: bold;
+    }
+
+    .ubicacion {
+      font-size: 0.9em;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .descuento {
+      color: #0077ff;
+      font-size: 0.9em;
+      cursor: pointer;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .trash {
+      color: red;
+      cursor: pointer;
+      float: right;
+    }
+
+    .footer {
+      background: #0077ff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      border-radius: 0 0 10px 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div>TURNOS A RESERVAR (2)</div>
+      <span>$ 46.000</span>
+    </div>
+    <div class="tabs">
+      <div class="tab">Turno 1</div>
+      <div class="tab active">Turno 2</div>
+    </div>
+    <div class="turno">
+      <div class="info">
+        <img src="https://i.pravatar.cc/100" alt="Foto">
+        <div>
+          <strong>Julieta V</strong><br>
+          <small>09/12 - 10:00</small>
+        </div>
+      </div>
+      <div class="detalle">
+        💇 Corte de pelo (45 min) <span> $18.000</span>
+      </div>
+      <div class="ubicacion">
+        📍 Calle 46 68, La Plata piso 2
+      </div>
+      <div class="descuento">Tengo código de descuento</div>
+      <span class="trash">🗑️</span>
+    </div>
+    <div class="footer">
+      ⚖️ ABONAR SEÑA ($ 11.100)
+    </div>
+  </div>
+</body>
+</html>
